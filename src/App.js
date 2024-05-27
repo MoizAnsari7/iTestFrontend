@@ -3,6 +3,7 @@ import AssessmentList from "./components/assessment-list.component";
 import CreateTestComponent from "./components/test.component";
 import TestCompoent from "./components/test-list.component"
 import CreateQuestionComponent from "./components/question.component";
+import QuestionList from "./components/question-list";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         {/* <CreateTestComponent/>
         <TestCompoent/> */}
         <CreateQuestionComponent/>
+        <QuestionList/>
     </>
   );
 }

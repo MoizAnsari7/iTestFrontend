@@ -13,25 +13,24 @@ const CreateQuestionForm = () => {
   });
   const [testList, setTests] = useState([])
   
-  useEffect(async ()=>{
-    try{
-        const response = await axios.get('http://localhost:5000/v1/test/list');
-        setTests(response.data.data);
-    }catch(c){
+  useEffect( ()=>{
+        axios.get('http://localhost:5000/v1/test/list').then(
+        (response)=>{setTests(response.data.data);
+        }).catch((e)=>{
 
-    }
-  },)
+    })
+  },[])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: value , createdBy : "664b5b70f28e8242bf2b1494"});
     
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/v1/question/save', {
+      const response = await axios.post('http://localhost:5000/v1/question/save', {
         ...formData,
         marks: parseInt(formData.marks, 10)
       });
@@ -121,15 +120,21 @@ const CreateQuestionForm = () => {
         </label>
       </div>
       <div>
-        <label>
-          Test ID:
-          <input
-            type="text"
+      <label>
+          Test:
+          <select
             name="testId"
             value={formData.testId}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="" disabled>Select a test</option>
+            {testList.map(test => (
+              <option key={test.id} value={test.id}>
+                {test.testName}
+              </option>
+            ))}
+          </select>
         </label>
       </div>
       <button type="submit">Create Question</button>
