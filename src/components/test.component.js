@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const CreateAssessmentForm = () => {
+const CreateTestForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    testName: '',
     description: '',
-    timeLimit: '',
-    createdBy: ''
+    createdBy: '',
+    timeLimit: ''
   });
 
   const handleChange = (e) => {
@@ -17,17 +17,15 @@ const CreateAssessmentForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/v1/assessment/create', {
-        name: formData.name,
+      const response = await axios.post('http://localhost:5000/v1/test/create', {
+        testName: formData.testName,
         description: formData.description,
-        timeLimit: parseInt(formData.timeLimit, 10),
-        // createdBy: formData.createdBy
-        createdBy: "664b5b70f28e8242bf2b1494"//hard coded for sometime.
-        
+        createdBy: "664f5c99f98156d055b8c378",
+        timeLimit: parseInt(formData.timeLimit, 10)
       });
-      console.log('Assessment created successfully:', response.data);
+      console.log('Test created successfully:', response.data);
     } catch (error) {
-      console.error('There was an error creating the assessment!', error);
+      console.error('There was an error creating the test!', error);
     }
   };
 
@@ -35,11 +33,11 @@ const CreateAssessmentForm = () => {
     <form onSubmit={handleSubmit}>
       <div>
         <label>
-          Name:
+          Test Name:
           <input
             type="text"
-            name="name"
-            value={formData.name}
+            name="testName"
+            value={formData.testName}
             onChange={handleChange}
             required
           />
@@ -59,18 +57,6 @@ const CreateAssessmentForm = () => {
       </div>
       <div>
         <label>
-          Time Limit (minutes):
-          <input
-            type="number"
-            name="timeLimit"
-            value={formData.timeLimit}
-            onChange={handleChange}
-            required
-          />
-        </label>
-      </div>
-      <div>
-        <label>
           Created By:
           <input
             type="text"
@@ -81,9 +67,21 @@ const CreateAssessmentForm = () => {
           />
         </label>
       </div>
-      <button type="submit">Create Assessment</button>
+      <div>
+        <label>
+          Time Limit (minutes):
+          <input
+            type="number"
+            name="timeLimit"
+            value={formData.timeLimit}
+            onChange={handleChange}
+            required
+          />
+        </label>
+      </div>
+      <button type="submit">Create Test</button>
     </form>
   );
 };
 
-export default CreateAssessmentForm;
+export default CreateTestForm;
