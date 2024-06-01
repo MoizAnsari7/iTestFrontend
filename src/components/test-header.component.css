@@ -1,0 +1,70 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .left-section, .right-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .action-button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .action-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .timer-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid #28a745;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .timer-text {
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .company-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .test-dropdown {
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+  }
+  
+  .username {
+    font-size: 16px;
+    color: #495057;
+  }
+
+  
+.timer-text {
+    color: #000;
+    font-size: 16px; /* Adjusted font size */
+    font-weight: bold;
+    text-align: center; /* Center-align text */
+  }

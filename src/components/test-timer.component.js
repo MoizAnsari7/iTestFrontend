@@ -32,7 +32,7 @@ const  TimerComponent = ()=>{
     }, [ timer ])
     return (
         <>
-            <h1>{`${ timer.hours } : ${ timer.minutes } : ${ timer.seconds } `}</h1>
+            <span class="timer-text">{`${ timer.hours } : ${ timer.minutes } : ${ timer.seconds } `}</span>
         </>
     )
 }

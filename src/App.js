@@ -5,6 +5,7 @@ import TestCompoent from "./components/test-list.component"
 import CreateQuestionComponent from "./components/question.component";
 import QuestionList from "./components/question-list";
 import TimerComponent from "./components/test-timer.component"
+import TestScreen from "./screens/test.screen";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <TestCompoent/> */}
         {/* <CreateQuestionComponent/>
         <QuestionList/> */}
-        <TimerComponent />
+        {/* <TimerComponent /> */}
+        <TestScreen/>
     </>
   );
 }
