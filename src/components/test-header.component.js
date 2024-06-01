@@ -2,6 +2,7 @@ import TimerComponent from "./test-timer.component";
 import "./test-header.component.css"
 const TestHeaderComponent = ()=>{
     return (
+        <>
         <header className="header">
           <div className="right-section">
             <button className="action-button">Pause Test</button>
@@ -10,7 +11,7 @@ const TestHeaderComponent = ()=>{
               <TimerComponent />
             </div>
             <div>
-              <span className="username">Moiz Ansari</span>
+              <span className="username"><b>@</b> Moiz Ansari</span>
             </div>
           </div>
           <div className="left-section">
@@ -24,6 +25,22 @@ const TestHeaderComponent = ()=>{
             </select>
           </div>
         </header>
+        <div className="subheader">
+        <div className="subheader-left">
+          <span className="section-name">Angular &nbsp; <b>|</b> &nbsp; Question <b>3</b> of <b>25</b></span>
+        </div>
+        <div className="subheader-center">
+          {Array.from({ length: 5 }, (_, i) => (
+            <div key={i} className="number-circle">
+              {i + 1}
+            </div>
+          ))}
+        </div>
+        <div className="subheader-right">
+          <img src="./video-image.jpeg" alt="Rectangular" className="rectangular-image" />
+        </div>
+      </div>
+        </>
       );
 }
 
