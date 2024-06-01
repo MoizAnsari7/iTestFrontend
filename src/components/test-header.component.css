@@ -61,6 +61,32 @@
     color: #495057;
   }
 
+
+  .subheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #e9ecef;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .subheader-left, .subheader-center, .subheader-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .section-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  
+  .rectangular-image {
+    width: 100px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+    margin-left: 10px;
+  }
   
 .timer-text {
     color: #000;
@@ -68,3 +94,64 @@
     font-weight: bold;
     text-align: center; /* Center-align text */
   }
+  
+  .hollow-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Initially hide the hollow circle */
+  }
+  
+  .number-button:hover .hollow-circle {
+    display: block; /* Show the hollow circle on hover */
+  }
+  
+
+  .number-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .number-button {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .prev-next-circle {
+    width: 50px;
+    height: 50px;
+    /* background-color: #ddd; */
+    /* color: #777; */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border: '2px solid gray'
+  }
+  
+  .prev-next-circle:hover {
+    background-color: #ccc;
+  }
+  
