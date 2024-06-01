@@ -1,0 +1,118 @@
+/* .question-panel {
+    display: flex;
+    justify-content: space-between;
+  } */
+  .question-panel {
+    display: flex;
+    justify-content: space-between;
+    position: relative; /* Added for positioning the divider */
+  }
+    
+  .left-section-question {
+    width: 50%;
+    display: block;
+  }
+  
+  .right-section-question {
+    width: 50%;
+    display: block;
+  }
+  
+  .top-section {
+    background-color: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    width : 100%;
+    flex-wrap: wrap; /* Added to allow items to wrap */
+    justify-content: space-between; /* Adjusted for spacing between items */
+    align-items: center;
+  }
+  
+  .question-number {
+    font-weight: bold;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .info-button,
+  .flag-button,
+  .clear-button,
+  .next-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .question {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  
+  .header-box {
+    background-color: #f0f0f0;
+    padding: 10px;
+    font-weight: bold;
+  }
+  
+  .options {
+    margin-top: 20px;
+  }
+  
+  .option {
+    margin-bottom: 10px;
+  }
+  
+  .option label {
+    margin-left: 5px;
+  }
+  
+  .clear-button,
+  .next-button {
+    margin-top: 20px;
+  }
+  
+
+
+  
+  .divider {
+    width: 1px;
+    background-color: #ddd;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Added shadow */
+    height: 100%; /* Adjusted height */
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 50%; /* Positioned in the middle */
+    transform: translateX(-50%); /* Center horizontally */
+  }
+  
+  /* Styling for options */
+  .option:last-child {
+    border-bottom: 1px solid #ddd; /* Added light border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added shadow */
+  }
+  
+  .option input[type="checkbox"],
+  .option input[type="radio"] {
+    border: 2px solid #b3d4fc; /* Light blue border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added shadow */
+    width: 24px; /* Adjusted size */
+    height: 24px; /* Adjusted size */
+    border-radius: 5px; /* Rounded corners */
+    margin-right: 10px; /* Added spacing between checkbox and label */
+  }
+  
+  .option input[type="checkbox"]:checked::before,
+  .option input[type="radio"]:checked::before {
+    content: ''; /* Empty content */
+    display: inline-block;
+    width: 16px; /* Adjusted size */
+    height: 16px; /* Adjusted size */
+    background-color: #007bff; /* Blue color when checked */
+    border-radius: 3px; /* Rounded corners */
+  }
+  
