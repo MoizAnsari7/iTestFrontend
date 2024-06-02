@@ -1,0 +1,113 @@
+.side-panel {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-right: 1px solid #dee2e6;
+  }
+  
+  .side-panel-header {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .status-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .answered {
+    background-color: lightgreen;
+  }
+  
+  .not-answered {
+    background-color: lightpink;
+  }
+  
+  .marked {
+    background-color: lightblue;
+  }
+  
+  .not-visited {
+    background-color: lightgray;
+  }
+  
+  .status-text {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+  
+  .status-text span {
+    font-size: 15px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .side-panel-list {
+    margin-top: 10px;
+  }
+  
+  .list-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .answered-border {
+    border-left: 5px solid lightgreen;
+  }
+  
+  .not-answered-border {
+    border-left: 5px solid lightpink;
+  }
+  
+  .marked-border {
+    border-left: 5px solid lightblue;
+  }
+  
+  .not-visited-border {
+    border-left: 5px solid lightgray;
+  }
+
+  .section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #e0e0e0;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .section-title-text {
+    font-weight: bold;
+  }
+  
+  .question-count {
+    display: flex;
+    align-items: center;
+  }
+  
+  .caret-icon {
+    margin-left: 5px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    padding: 5px;
+  }
+    
