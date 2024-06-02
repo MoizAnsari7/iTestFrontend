@@ -13,7 +13,6 @@ const QuestionPanelComponent = () => {
             <div className="divider"></div>
             {/* Right Section */}
             <OptionPanelComponent/>
-           
         </div>
     );
 }
