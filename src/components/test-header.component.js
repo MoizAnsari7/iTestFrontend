@@ -5,6 +5,7 @@ import axios from "axios";
 const TestHeaderComponent = () => {
 
     const [ questionList , setQuestionList ] = useState([]);
+    const [ currentIndex, setCurrentIndex ] = useState(0);
     useEffect(() => {
         const fetchQuestionList = async () => {
           try {
@@ -18,6 +19,17 @@ const TestHeaderComponent = () => {
           fetchQuestionList()
     },[])
     
+    const handleNextClick= ()=>{
+        setCurrentIndex((prevIndex)=>{
+            return ( prevIndex < questionList.length -1 ) ? prevIndex + 1 : prevIndex;
+        })
+    }
+
+    const handlePreviousClick= ()=>{
+        setCurrentIndex((prevIndex)=>{
+            return ( prevIndex > 0 ) ? prevIndex - 1 : prevIndex
+        })
+    }
     return (
         <>
             <header className="header">
@@ -44,23 +56,23 @@ const TestHeaderComponent = () => {
             </header>
             <div className="subheader">
                 <div className="subheader-left">
-                    <span className="section-name">Angular &nbsp; <b>|</b> &nbsp; Question <b>3</b> of <b>25</b></span>
+                    <span className="section-name">Angular &nbsp; <b>|</b> &nbsp; Question <b>{ currentIndex + 1}</b> of <b>{ questionList.length }</b></span>
                 </div>
                 <div className="subheader-center">
-                    <button className="prev-next-circle" style={{ padding: 0, margin: 0, border: '2px solid gray'  }}>
+                    <button onClick={handlePreviousClick} className="prev-next-circle" style={{ padding: 0, margin: 0, border: '2px solid gray'  }}>
                         <div >Prev</div>
                     </button>
                     {
                         ( questionList.map((question, index)=>{
                             // console.log("hellow");
                             return (
-                            <div key={index} className="number-circle">
+                            <div key={index} className={`number-circle ${ (index === currentIndex) && "active" }`}>
                             {index + 1}
                         </div>)
                         }))
                     }
                     {/* Button with hollow circle for "next" */}
-                    <button className="prev-next-circle" style={{ padding: 0, margin: 0, border: '2px solid gray'  }}>
+                    <button  onClick={handleNextClick} className="prev-next-circle" style={{ padding: 0, margin: 0, border: '2px solid gray'  }}>
                         <div className="">Next</div>
                     </button>
                 </div>

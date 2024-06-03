@@ -34,14 +34,17 @@ const QuestionPanelListComponent = (props) => {
             <div className="section-title">
                 <span className="section-title-text">Section Title</span>
                 <span className="question-count">
-                    10 Questions <span className="caret-icon">&#9660;</span>
+                    { questionList.length } Questions <span className="caret-icon">&#9660;</span>
                 </span>
             </div>
             {/* List of question with colored borders */}
             <div className="side-panel-list">
                 {
                     (questionList && questionList.length>  0) && questionList.map((question, index)=>{
-                        return (<div  key={question._id} className="list-item answered-border">{question.question}</div>)
+                        return (<div  key={question._id} className="list-item answered-border">
+                            <b>{ index + 1  }. &nbsp;</b>
+                            <i>{question.question}</i>
+                            </div>)
                     })
                 }
             </div>
