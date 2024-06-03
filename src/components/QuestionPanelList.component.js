@@ -16,6 +16,10 @@ const QuestionPanelListComponent = ({ questionList, currentQuestionIndex, change
     //       }}
     //       fetchQuestionList()
     // },[])
+
+    const  onQuestionSelect = (selectedIndex)=>{
+        changeCurrentQuestionIndex(selectedIndex);
+    }
     return (
         <div className="side-panel">
             {/* Header with circles */}
@@ -42,7 +46,7 @@ const QuestionPanelListComponent = ({ questionList, currentQuestionIndex, change
             <div className="side-panel-list">
                 {
                     (questionList && questionList.length>  0) && questionList.map((question, index)=>{
-                        return (<div  key={question._id} className={ `list-item answered-border ${ ( currentQuestionIndex === index ) ? "active" : "" }`}>
+                        return (<div  key={question._id} onClick={()=> onQuestionSelect(index) } className={ `list-item answered-border ${ ( currentQuestionIndex === index ) ? "active" : "" }`}>
                             <b>{ index + 1  }. &nbsp;</b>
                             <i>{question.question}</i>
                             </div>)
