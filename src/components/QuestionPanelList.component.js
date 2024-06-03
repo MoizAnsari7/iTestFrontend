@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './QuestionPanelListComponent.css';
-
-const QuestionPanelListComponent = () => {
+import axios from 'axios';
+const QuestionPanelListComponent = (props) => {
+    const [ questionList , setQuestionList ] = useState([]);
+    useEffect(() => {
+        const fetchQuestionList = async () => {
+          try {
+            //through test id we will get question and its options
+            const response = await axios.get('http://localhost:5000/v1/question/questionWithAnswer/664f5fa79cadea9bd09f44ed');
+            console.log(response.data.data);
+            setQuestionList(response.data.data)
+          } catch (error) {
+            console.error('Error fetching the question with options for a test:', error);
+          }}
+          fetchQuestionList()
+    },[])
     return (
         <div className="side-panel">
             {/* Header with circles */}
@@ -24,12 +37,13 @@ const QuestionPanelListComponent = () => {
                     10 Questions <span className="caret-icon">&#9660;</span>
                 </span>
             </div>
-            {/* List with colored borders */}
+            {/* List of question with colored borders */}
             <div className="side-panel-list">
-                <div className="list-item answered-border">This is a long text that will be trimmed...</div>
-                <div className="list-item not-answered-border">Another example of a long text...</div>
-                <div className="list-item marked-border">This is yet another example...</div>
-                <div className="list-item not-visited-border">Sample text for not visited...</div>
+                {
+                    (questionList && questionList.length>  0) && questionList.map((question, index)=>{
+                        return (<div  key={question._id} className="list-item answered-border">{question.question}</div>)
+                    })
+                }
             </div>
         </div>
     );
