@@ -10,10 +10,10 @@ const QuestionPanelComponent = ({ questionList, currentQuestionIndex, changeCurr
         <div className="question-panel">
             <QuestionPanelListComponent questionList={questionList}  currentQuestionIndex={ currentQuestionIndex } changeCurrentQuestionIndex={changeCurrentQuestionIndex} />
             {/* Left Section */}
-            <QuestionComponent  question={questionList[currentQuestionIndex]?.question}/>        
+            <QuestionComponent  question={questionList[currentQuestionIndex]?.question}  questionList={questionList}  currentQuestionIndex={ currentQuestionIndex } />        
             <div className="divider"></div>
             {/* Right Section */}
-            <OptionPanelComponent  options={questionList[currentQuestionIndex]}/>
+            <OptionPanelComponent  options={questionList[currentQuestionIndex]} />
         </div>
     );
 }
