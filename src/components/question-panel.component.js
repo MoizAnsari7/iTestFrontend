@@ -4,15 +4,16 @@ import OptionPanelComponent from './option-panel.component';
 import QuestionComponent from './question-box';
 import QuestionPanelListComponent from './QuestionPanelList.component';
 
-const QuestionPanelComponent = () => {
+const QuestionPanelComponent = ({ questionList, currentQuestionIndex, changeCurrentQuestionIndex }) => {
+    console.log("panle", questionList, currentQuestionIndex,questionList[currentQuestionIndex]);
     return (
         <div className="question-panel">
-            <QuestionPanelListComponent/>
+            <QuestionPanelListComponent questionList={questionList}  currentQuestionIndex={ currentQuestionIndex } changeCurrentQuestionIndex={changeCurrentQuestionIndex} />
             {/* Left Section */}
-            <QuestionComponent/>        
+            <QuestionComponent  question={questionList[currentQuestionIndex]?.question}/>        
             <div className="divider"></div>
             {/* Right Section */}
-            <OptionPanelComponent/>
+            <OptionPanelComponent  options={questionList[currentQuestionIndex]}/>
         </div>
     );
 }

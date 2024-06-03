@@ -14,6 +14,7 @@ const TestScreen = () => {
       try {
         const response = await axios.get('http://localhost:5000/v1/question/questionWithAnswer/664f5fa79cadea9bd09f44ed');
         setQuestionList(response.data.data);
+        console.log("resp",questionList)
       } catch (error) {
         console.error('Error fetching the question list:', error);
       }
@@ -28,7 +29,9 @@ const TestScreen = () => {
     <div className="test-screen-container">
       <TestHeaderComponent questionList={questionList} currentQuestionIndex={currentQuestionIndex} changeCurrentQuestionIndex={changeCurrentQuestionIndexHandler} />
       <div className="content-container">
-        <QuestionPanelComponent questionList={questionList} currentQuestionIndex={currentQuestionIndex} setCurrentQuestionIndex={setCurrentQuestionIndex} />
+        {/* <QuestionPanelComponent questionList={questionList} currentQuestionIndex={currentQuestionIndex} changeCurrentQuestionIndex={changeCurrentQuestionIndexHandler} />
+         */}
+        <QuestionPanelComponent questionList={questionList} currentQuestionIndex={currentQuestionIndex} changeCurrentQuestionIndex={changeCurrentQuestionIndexHandler} />
       </div>
       <TestFooterComponent />
     </div>
