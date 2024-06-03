@@ -1,4 +1,5 @@
-const QuestionComponent = ()=>{
+const QuestionComponent = (question)=>{
+    console.log("question",question.question);
     return (<> 
 <div className="left-section-question">
                 {/* Top section with question number and buttons */}
@@ -10,7 +11,7 @@ const QuestionComponent = ()=>{
                     </div>
                 </div>
                 {/* Question section */}
-                <div className="question">What is your name?</div>
+                <div className="question">{ question.question }</div>
             </div>
             </>)
 }
