@@ -1,6 +1,23 @@
+import { useEffect, useState } from "react";
 import TimerComponent from "./test-timer.component";
 import "./test-header.component.css"
+import axios from "axios";
 const TestHeaderComponent = () => {
+
+    const [ questionList , setQuestionList ] = useState([]);
+    useEffect(() => {
+        const fetchQuestionList = async () => {
+          try {
+            //through test id we will get question and its options
+            const response = await axios.get('http://localhost:5000/v1/question/questionWithAnswer/664f5fa79cadea9bd09f44ed');
+            console.log("test header data list",response.data.data);
+            setQuestionList(response.data.data)
+          } catch (error) {
+            console.error('Error fetching the question with options for a test:', error);
+          }}
+          fetchQuestionList()
+    },[])
+    
     return (
         <>
             <header className="header">
@@ -33,11 +50,15 @@ const TestHeaderComponent = () => {
                     <button className="prev-next-circle" style={{ padding: 0, margin: 0, border: '2px solid gray'  }}>
                         <div >Prev</div>
                     </button>
-                    {Array.from({ length: 5 }, (_, i) => (
-                        <div key={i} className="number-circle">
-                            {i + 1}
-                        </div>
-                    ))}
+                    {
+                        ( questionList.map((question, index)=>{
+                            // console.log("hellow");
+                            return (
+                            <div key={index} className="number-circle">
+                            {index + 1}
+                        </div>)
+                        }))
+                    }
                     {/* Button with hollow circle for "next" */}
                     <button className="prev-next-circle" style={{ padding: 0, margin: 0, border: '2px solid gray'  }}>
                         <div className="">Next</div>
