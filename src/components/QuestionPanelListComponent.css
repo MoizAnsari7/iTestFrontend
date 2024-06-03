@@ -110,4 +110,8 @@
     border-radius: 50%;
     padding: 5px;
   }
-    
+
+.list-item.answered-border.active{
+    background-color: #4caf50;
+    color: white;
+}

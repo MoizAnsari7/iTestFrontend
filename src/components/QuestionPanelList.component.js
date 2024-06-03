@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './QuestionPanelListComponent.css';
 import axios from 'axios';
 const QuestionPanelListComponent = (props) => {
+    const [ currentIndex , setCurrentIndex ] = useState(0);
     const [ questionList , setQuestionList ] = useState([]);
     useEffect(() => {
         const fetchQuestionList = async () => {
@@ -41,7 +42,7 @@ const QuestionPanelListComponent = (props) => {
             <div className="side-panel-list">
                 {
                     (questionList && questionList.length>  0) && questionList.map((question, index)=>{
-                        return (<div  key={question._id} className="list-item answered-border">
+                        return (<div  key={question._id} className={ `list-item answered-border ${ ( currentIndex === index ) ? "active" : "" }`}>
                             <b>{ index + 1  }. &nbsp;</b>
                             <i>{question.question}</i>
                             </div>)
