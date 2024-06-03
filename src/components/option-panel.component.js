@@ -1,5 +1,6 @@
 import './QuestionPanelComponent.css';
-const  OptionPanelComponent = ()=>{
+const  OptionPanelComponent = ({ options })=>{
+    console.log("options",options?.answerOptions);
     return (
         <>
  <div className="right-section-question">
@@ -7,26 +8,20 @@ const  OptionPanelComponent = ()=>{
                 <div className="header-box">Choose the correct option</div>
                 {/* Options */}
                 <div className="options">
-                    {/* Option 1 - Radio box */}
-                    <div className="option">
+
+                    {  (options?.answerOptions) && options?.answerOptions?.map( (option, index)=>{
+                        return (<>
+                        <div className="option">
                         <input type="radio" id="option1" name="options" />
-                        <label htmlFor="option1">Option 1</label>
+                        <label htmlFor="option1">{ option.answerText }</label>
                     </div>
-                    {/* Option 2 - Radio box */}
-                    <div className="option">
-                        <input type="radio" id="option1" name="options" />
-                        <label htmlFor="option1">Option 2</label>
-                    </div>
-                    {/* Option 3 - Checkbox */}
-                    <div className="option">
-                        <input type="checkbox" id="option2" name="options" />
-                        <label htmlFor="option2">Option 3</label>
-                    </div>
+                    </>)
+                    }) }
                     {/* Option 4 - Checkbox */}
-                    <div className="option">
+                    {/* <div className="option">
                         <input type="checkbox" id="option3" name="options" />
                         <label htmlFor="option3">Option 4</label>
-                    </div>
+                    </div> */}
                 </div>
                 {/* Buttons */}
                 <div className="action-buttons">
