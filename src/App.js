@@ -6,6 +6,7 @@ import CreateQuestionComponent from "./components/question.component";
 import QuestionList from "./components/question-list";
 import TimerComponent from "./components/test-timer.component"
 import TestScreen from "./screens/test.screen";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
@@ -18,6 +19,15 @@ function App() {
         <QuestionList/> */}
         {/* <TimerComponent /> */}
         {/* <TestScreen/> */}
+        <Router>
+          <Routes>
+      <div className="app">
+        <h1>Assessment List</h1>
+        <Route path="/" exact render={() => <AssessmentList  />} />
+        {/* Add more routes as needed */}
+      </div>
+      </Routes>
+    </Router>
     </>
   );
 }
