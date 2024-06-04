@@ -10,14 +10,14 @@ import TestScreen from "./screens/test.screen";
 function App() {
   return (
     <>
-        {/* <CreateAssessmentComponent/>
-        <AssessmentList/> */}
+        {/* <CreateAssessmentComponent/>*/}
+        <AssessmentList/>
         {/* <CreateTestComponent/>
         <TestCompoent/> */}
         {/* <CreateQuestionComponent/>
         <QuestionList/> */}
         {/* <TimerComponent /> */}
-        <TestScreen/>
+        {/* <TestScreen/> */}
     </>
   );
 }
