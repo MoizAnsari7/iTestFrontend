@@ -12,16 +12,13 @@ import TestList from "./components/test-list.component";
 function App() {
   return (
     <>
-        <AssessmentList/>
         <Router>
           <Routes>
       <div className="app">
         <Route path="/" exact render={() => <AssessmentList  />} />
         <Route path="/testlist" exact render={() => <TestList  />} />
         <Route path="/testDasboard" exact render={() => <TestScreen  />} />
-        {/* <Route path="/" exact render={() => <AssessmentList  />} /> */}
-        {/* Add more routes as needed */}
-      </div>
+        </div>
       </Routes>
     </Router>
     </>
