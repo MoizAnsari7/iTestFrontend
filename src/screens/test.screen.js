@@ -29,8 +29,6 @@ const TestScreen = () => {
     <div className="test-screen-container">
       <TestHeaderComponent questionList={questionList} currentQuestionIndex={currentQuestionIndex} changeCurrentQuestionIndex={changeCurrentQuestionIndexHandler} />
       <div className="content-container">
-        {/* <QuestionPanelComponent questionList={questionList} currentQuestionIndex={currentQuestionIndex} changeCurrentQuestionIndex={changeCurrentQuestionIndexHandler} />
-         */}
         <QuestionPanelComponent questionList={questionList} currentQuestionIndex={currentQuestionIndex} changeCurrentQuestionIndex={changeCurrentQuestionIndexHandler} />
       </div>
       <TestFooterComponent />
