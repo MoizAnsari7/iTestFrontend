@@ -12,14 +12,7 @@ import TestList from "./components/test-list.component";
 function App() {
   return (
     <>
-        {/* <CreateAssessmentComponent/>*/}
         <AssessmentList/>
-        {/* <CreateTestComponent/>
-        <TestCompoent/> */}
-        {/* <CreateQuestionComponent/>
-        <QuestionList/> */}
-        {/* <TimerComponent /> */}
-        {/* <TestScreen/> */}
         <Router>
           <Routes>
       <div className="app">
