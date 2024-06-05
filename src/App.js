@@ -23,7 +23,6 @@ function App() {
         <Router>
           <Routes>
       <div className="app">
-        <h1>Assessment List</h1>
         <Route path="/" exact render={() => <AssessmentList  />} />
         <Route path="/testlist" exact render={() => <TestList  />} />
         <Route path="/testDasboard" exact render={() => <TestScreen  />} />
