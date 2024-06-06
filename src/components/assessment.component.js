@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import AssessmentList from './assessment-list.component';
+import { useNavigate } from 'react-router';
 
 const CreateAssessmentForm = () => {
+  const navigation = useNavigate()
+  const [ userList , setUserList] = useState([])
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -9,11 +13,26 @@ const CreateAssessmentForm = () => {
     createdBy: ''
   });
 
+  useEffect(()=>{
+    getUserList()
+  },[])
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+
+  const getUserList = async ()=>{
+    try{
+    const response = await axios.get('http://localhost:5000/v1/user/list');
+    console.log(response.data.data);
+    setUserList(response.data.data ? response.data.data : [])
+    }catch(e)
+    {
+      console.log("error in get user list",e);
+    }
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -21,8 +40,8 @@ const CreateAssessmentForm = () => {
         name: formData.name,
         description: formData.description,
         timeLimit: parseInt(formData.timeLimit, 10),
-        // createdBy: formData.createdBy
-        createdBy: "664b5b70f28e8242bf2b1494"//hard coded for sometime.
+        createdBy: formData.createdBy,
+        // createdBy: "664b5b70f28e8242bf2b1494"//hard coded for sometime.
         
       });
       console.log('Assessment created successfully:', response.data);
@@ -32,6 +51,7 @@ const CreateAssessmentForm = () => {
   };
 
   return (
+    <>
     <form onSubmit={handleSubmit}>
       <div>
         <label>
@@ -70,7 +90,7 @@ const CreateAssessmentForm = () => {
         </label>
       </div>
       <div>
-        <label>
+        {/* <label>
           Created By:
           <input
             type="text"
@@ -79,10 +99,29 @@ const CreateAssessmentForm = () => {
             onChange={handleChange}
             required
           />
+        </label> */}
+        <label>
+        Created By:
+          <select
+            name="createdBy"
+            value={formData.createdBy}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>Select a User</option>
+            {userList.map(user => (
+              <option key={user.id} value={user.id}>
+                {user.email }
+              </option>
+            ))}
+          </select>
         </label>
+
       </div>
       <button type="submit">Create Assessment</button>
     </form>
+    <AssessmentList/>
+    </>
   );
 };
 

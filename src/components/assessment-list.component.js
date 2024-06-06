@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const AssessmentList = () => {
+  const navigation = useNavigate()
   const [assessments, setAssessments] = useState([]);
 
   useEffect(() => {
@@ -17,14 +19,15 @@ const AssessmentList = () => {
     fetchAssessments();
   }, []);
 
-  const handleOpenAssessment = ()=>{
+  const handleOpenAssessment = ( assessmentId )=>{
     console.log("handleOpenAssessment");
+    navigation("/test",{ state : {  assessmentId : assessmentId }})
     //route to test list component
   }
   return (
     <div style={styles.container}>
       {assessments.map(assessment => (
-        <div key={assessment.id} style={styles.card} onClick={ handleOpenAssessment }>
+        <div key={assessment.id} style={styles.card} onClick={ ()=>handleOpenAssessment(assessment.id) }>
           <h3>{assessment.name}</h3>
           <p>{assessment.description}</p>
           <p><strong>Time Limit:</strong> {assessment.timeLimit} minutes</p>
