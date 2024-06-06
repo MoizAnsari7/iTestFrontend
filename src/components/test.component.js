@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router';
 
 const CreateTestForm = () => {
+  const location = useLocation()
   const [formData, setFormData] = useState({
     testName: '',
     description: '',
