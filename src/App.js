@@ -24,9 +24,11 @@ function App() {
         <Routes>
         <Route path="/" Component={ TestScreen } />
           <Route path="/dashboard" Component={TestScreen } />
-          <Route path="/test" Component={ CreateTestComponent } />
+          <Route path="/addtest" Component={ CreateTestComponent } />
+          <Route path="/testlist" Component={ TestCompoent } />
           <Route path="/question" Component={ CreateQuestionForm } />
-          <Route path="/assessment" Component={ CreateAssessmentForm  } />
+          <Route path="/addassessment" Component={ CreateAssessmentForm  } />
+          <Route path="/assessmentlist" Component={ AssessmentList } />    
         </Routes>
       </BrowserRouter>
     </>
