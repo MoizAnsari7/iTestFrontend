@@ -19,13 +19,17 @@ const CreateTestForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/v1/test/create', {
+      console.log("router data", location.state);
+      const reqBody = {
         testName: formData.testName,
         description: formData.description,
-        createdBy: "664f5c99f98156d055b8c378",
-        timeLimit: parseInt(formData.timeLimit, 10)
-      });
-      console.log('Test created successfully:', response.data);
+        createdBy: location.state.userId ? location.state.userId : "",
+        timeLimit: parseInt(formData.timeLimit, 10),
+        assessmentId :  location.state.assessmentId ? location.state.assessmentId : ""
+      }
+      console.log("req body",reqBody);
+      const response = await axios.post('http://localhost:5000/v1/test/create', reqBody);
+      console.log('Test created successfully:',  response.data);
     } catch (error) {
       console.error('There was an error creating the test!', error);
     }

@@ -10,7 +10,8 @@ const CreateAssessmentForm = () => {
     name: '',
     description: '',
     timeLimit: '',
-    createdBy: ''
+    createdBy: '',
+    test : []
   });
 
   useEffect(()=>{
