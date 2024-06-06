@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const TestList = () => {
   const [tests, setTests] = useState([]);
-
   useEffect(() => {
     const fetchTests = async () => {
       try {
@@ -17,15 +16,26 @@ const TestList = () => {
     fetchTests();
   }, []);
 
+  const handleTestClick = (test)=>{
+
+  }
+  const handleAddQuestion = (test)=>{
+
+  }
+  const handleShowQuestionList = (test)=>{
+    
+  }
   return (
     <div style={styles.container}>
       {tests.map(test => (
-        <div key={test.id} style={styles.card}>
+        <div key={test.id} style={styles.card} onClick={ ()=>{ handleTestClick(test) } }>
           <h3>{test.testName}</h3>
           <p>{test.description}</p>
           <p><strong>Time Limit:</strong> {test.timeLimit} minutes</p>
           <p><strong>Created By:</strong> {test.createdBy}</p>
           <p><strong>Created At:</strong> {new Date(test.createdAt).toLocaleString()}</p>
+          <button  onClick={()=>handleAddQuestion(test)}>Add question</button>
+          <button  onClick={()=>handleShowQuestionList(test)}>show question list</button>
         </div>
       ))}
     </div>
