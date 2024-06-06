@@ -19,7 +19,12 @@ const AssessmentList = () => {
     fetchAssessments();
   }, []);
 
-  const handleOpenAssessment = ( assessmentInfo )=>{
+
+  
+  const handleAddTest = (assessmentInfo)=>{
+    navigation("/test",{ state : {  assessmentId : assessmentInfo.id, userId : assessmentInfo.createdBy  }})
+  }
+  const handleShowTestList = ( assessmentInfo )=>{ 
     console.log("handleOpenAssessment");
     navigation("/test",{ state : {  assessmentId : assessmentInfo.id, userId : assessmentInfo.createdBy  }})
     //route to test list component
@@ -27,12 +32,15 @@ const AssessmentList = () => {
   return (
     <div style={styles.container}>
       {assessments.map(assessment => (
-        <div key={assessment.id} style={styles.card} onClick={ ()=>handleOpenAssessment(assessment) }>
+        <div key={assessment.id} style={styles.card} onClick={ ()=>handleShowTestList(assessment) }>
           <h3>{assessment.name}</h3>
           <p>{assessment.description}</p>
           <p><strong>Time Limit:</strong> {assessment.timeLimit} minutes</p>
           <p><strong>Created By:</strong> {assessment.createdBy}</p>
           <p><strong>Created At:</strong> {new Date(assessment.createdAt).toLocaleString()}</p>
+          <button  onClick={()=>handleAddTest(assessment)}>Add Test</button>
+          <button  onClick={()=>handleShowTestList(test)}>show Test list</button>
+
         </div>
       ))}
     </div>

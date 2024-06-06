@@ -26,7 +26,7 @@ function App() {
           <Route path="/dashboard" Component={TestScreen } />
           <Route path="/addtest" Component={ CreateTestComponent } />
           <Route path="/testlist" Component={ TestCompoent } />
-          <Route path="/question" Component={ CreateQuestionForm } />
+          <Route path="/addquestion" Component={ CreateQuestionForm } />
           <Route path="/addassessment" Component={ CreateAssessmentForm  } />
           <Route path="/assessmentlist" Component={ AssessmentList } />    
         </Routes>
