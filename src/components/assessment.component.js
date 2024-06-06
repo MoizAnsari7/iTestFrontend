@@ -121,7 +121,7 @@ const CreateAssessmentForm = () => {
       </div>
       <button type="submit">Create Assessment</button>
     </form>
-    <AssessmentList/>
+
     </>
   );
 };
