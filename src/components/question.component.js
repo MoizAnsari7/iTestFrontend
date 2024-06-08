@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router';
 
 const CreateQuestionForm = () => {
+  const [ selectedTestId, setSelectedTestId] = useState("")
+  const location = useLocation()
   const [formData, setFormData] = useState({
     question: '',
     questionType: 'MCQ4',
@@ -12,19 +15,26 @@ const CreateQuestionForm = () => {
     testId: ''
   });
   const [testList, setTests] = useState([])
-  
-  useEffect( ()=>{
+
+  useEffect(() => {
+    const { assessmentId, userId, testId } = location.state
+    console.log("add question mounting location data", assessmentId, userId, testId);
+    if(testId)
+      {
+        setSelectedTestId(testId)
+      }else{
         axios.get('http://localhost:5000/v1/test/list').then(
         (response)=>{setTests(response.data.data);
         }).catch((e)=>{
 
     })
-  },[])
+  }
+  }, [])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value , createdBy : "664b5b70f28e8242bf2b1494"});
-    
+    setFormData({ ...formData, [name]: value, createdBy: "664b5b70f28e8242bf2b1494" });
+
   };
 
   const handleSubmit = async (e) => {
@@ -119,8 +129,10 @@ const CreateQuestionForm = () => {
           />
         </label>
       </div>
+      {
+        (!selectedTestId) &&
       <div>
-      <label>
+        <label>
           Test:
           <select
             name="testId"
@@ -137,6 +149,7 @@ const CreateQuestionForm = () => {
           </select>
         </label>
       </div>
+}
       <button type="submit">Create Question</button>
     </form>
   );
