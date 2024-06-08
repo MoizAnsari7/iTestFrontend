@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 const TestList = () => {
   const [tests, setTests] = useState([]);
   const location = useLocation()
+  const navigation = useNavigate()
   useEffect(() => {
     const { assessmentId , userId } = location.state
     console.log("test list mounting location data",assessmentId , userId);
@@ -39,9 +40,14 @@ const TestList = () => {
 
   }
   const handleAddQuestion = (test)=>{
-
+    const { assessmentId , userId} = location.state
+    console.log("data passed handleAddQuestion location data",assessmentId , userId, test.id );
+    navigation("/addquestion", { state : { assessmentId , userId, testId : test.id  } })
   }
   const handleShowQuestionList = (test)=>{
+    const { assessmentId , userId } = location.state
+    console.log("data passed handleShowQuestionList location data",assessmentId , userId, test.id );
+    navigation("/questionlist", { state : { assessmentId , userId, testId : test.id  } })
     
   }
   return (
