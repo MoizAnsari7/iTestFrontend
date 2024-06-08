@@ -22,11 +22,12 @@ const AssessmentList = () => {
 
   
   const handleAddTest = (assessmentInfo)=>{
-    navigation("/test",{ state : {  assessmentId : assessmentInfo.id, userId : assessmentInfo.createdBy  }})
+    console.log("handleAddTest");
+    navigation("/addtest",{ state : {  assessmentId : assessmentInfo.id, userId : assessmentInfo.createdBy  }})
   }
   const handleShowTestList = ( assessmentInfo )=>{ 
-    console.log("handleOpenAssessment");
-    navigation("/test",{ state : {  assessmentId : assessmentInfo.id, userId : assessmentInfo.createdBy  }})
+    console.log("handleShowTestList");
+    navigation("/testlist",{ state : {  assessmentId : assessmentInfo.id, userId : assessmentInfo.createdBy  }})
     //route to test list component
   }
   return (
