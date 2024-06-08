@@ -1,9 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router';
 
 const TestList = () => {
   const [tests, setTests] = useState([]);
+  const location = useLocation()
   useEffect(() => {
+    const { assessmentId , userId } = location.state
+    console.log("test list mounting location data",assessmentId , userId);
+    if(assessmentId){
+      const fetchTestListByAssessmentId = async () => {
+        try {
+          const response = await axios.get('http://localhost:5000/v1/assessment/testList/'+ assessmentId);
+          // console.log("api respone",response.data.data);
+          setTests(response.data.data);
+        } catch (error) {
+          console.error('Error fetching the tests:', error);
+        }
+      };
+  
+      fetchTestListByAssessmentId();
+    
+    }else{
     const fetchTests = async () => {
       try {
         const response = await axios.get('http://localhost:5000/v1/test/list');
@@ -14,6 +32,7 @@ const TestList = () => {
     };
 
     fetchTests();
+  }
   }, []);
 
   const handleTestClick = (test)=>{

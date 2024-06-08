@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router';
 
@@ -10,6 +10,12 @@ const CreateTestForm = () => {
     createdBy: '',
     timeLimit: ''
   });
+
+  useEffect(()=>{
+    const { assessmentId , userId } = location.state
+    console.log("test add mounting location data",assessmentId , userId);
+
+  },[])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
