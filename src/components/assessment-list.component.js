@@ -40,7 +40,7 @@ const AssessmentList = () => {
           <p><strong>Created By:</strong> {assessment.createdBy}</p>
           <p><strong>Created At:</strong> {new Date(assessment.createdAt).toLocaleString()}</p>
           <button  onClick={()=>handleAddTest(assessment)}>Add Test</button>
-          <button  onClick={()=>handleShowTestList(test)}>show Test list</button>
+          <button  onClick={()=>handleShowTestList(assessment)}>show Test list</button>
 
         </div>
       ))}
