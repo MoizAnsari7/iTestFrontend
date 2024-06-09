@@ -33,15 +33,17 @@ const CreateQuestionForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value, createdBy: "664b5b70f28e8242bf2b1494" });
+    setFormData({ ...formData, [name]: value });
 
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const { assessmentId, userId, testId } = location.state
+      let body = { ...formData,  createdBy: userId, testId : testId  }
       const response = await axios.post('http://localhost:5000/v1/question/save', {
-        ...formData,
+        ...body,
         marks: parseInt(formData.marks, 10)
       });
       console.log('Question created successfully:', response.data);
@@ -92,7 +94,7 @@ const CreateQuestionForm = () => {
           </select>
         </label>
       </div>
-      <div>
+      {/* <div>
         <label>
           Created By:
           <input
@@ -103,7 +105,7 @@ const CreateQuestionForm = () => {
             required
           />
         </label>
-      </div>
+      </div> */}
       <div>
         <label>
           Is Marks Based:
