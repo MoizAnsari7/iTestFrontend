@@ -16,6 +16,8 @@ import {
 import TestList from "./components/test-list.component";
 import CreateAssessmentForm from "./components/assessment.component";
 import CreateQuestionForm from "./components/question.component";
+import TestWithQuestionListDashboard from "./components/question-test-dashboard";
+import addOptionForm from "./components/option.component";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
           <Route path="/questionlist" Component={ QuestionList  } />
           <Route path="/addassessment" Component={ CreateAssessmentForm  } />
           <Route path="/assessmentlist" Component={ AssessmentList } />    
+          <Route path="/testDashboard" Component={ TestWithQuestionListDashboard } />
+          <Route path="/addOption" Component={ addOptionForm } />    
         </Routes>
       </BrowserRouter>
     </>
