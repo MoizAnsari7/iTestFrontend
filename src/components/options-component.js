@@ -14,7 +14,12 @@ const OptionsComponent = ()=>{
 
     const handleChange = (e)=>{
         console.log("e", e.target.value);
+        if(e.target.name === "isCorrect")
+            {
+                setFormData({ ...formData, isCorrect : e.target.checked })
+            }else{
         setFormData({ ...formData, [e.target.name] : e.target.value })
+            }
     }
     
     const handleFormSubmit = (e)=>{
