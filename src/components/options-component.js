@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useLocation } from "react-router";
 
 const OptionsComponent = ()=>{
-    const location = useLocation()
+    const location = useLocation();
+    const [ selectedQuestion, setSelectedQuestion ] = useState({})
     const [ formData, setFormData ] = useState({
         answerText : "",
         explaination : "",
@@ -12,6 +13,12 @@ const OptionsComponent = ()=>{
         isCorrect : false
     })
 
+    useEffect(()=>{
+        const { question } = location.state;
+        // const body = { ...formData, questionId : question.id }
+        setSelectedQuestion(question)
+
+    })
     const handleChange = (e)=>{
         console.log("e", e.target.value);
         if(e.target.name === "isCorrect")
@@ -25,8 +32,8 @@ const OptionsComponent = ()=>{
     const handleFormSubmit = (e)=>{
         e.preventDefault()
         console.log("body", formData);
-        const { questionId } = location.state;
-        const body = { ...formData, questionId : questionId }
+        const { question } = location.state;
+        const body = { ...formData, questionId : question.id }
         axios.post("http://localhost:5000/v1//option/save", body).then((response)=>{
             console.log("response", response.data);
         }).catch((e)=>{
@@ -34,7 +41,9 @@ const OptionsComponent = ()=>{
         })
     }
     return (<>
-        <h1>options component </h1>
+        <h1>Q : { selectedQuestion.question }</h1>
+        <hr/>
+        <h2>Add new option</h2>
         <form onSubmit={handleFormSubmit}>
             <div>
                 <label>
