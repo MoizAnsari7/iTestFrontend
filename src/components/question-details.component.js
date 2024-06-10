@@ -11,7 +11,7 @@ const navigation = useNavigate()
 
   const handleAddOption = ( question )=>{
     console.log("handleAddOption", question);
-    navigation("/addOption", { state : { questionId : question.id }})
+    navigation("/addOption", { state : { question : question }})
   }
   return (
     <div className="question-card">
