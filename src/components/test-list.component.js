@@ -47,7 +47,7 @@ const TestList = () => {
   const handleShowQuestionList = (test)=>{
     const { assessmentId , userId } = location.state
     console.log("data passed handleShowQuestionList location data",assessmentId , userId, test.id );
-    navigation("/testDashboard", { state : { assessmentId , userId, testId : test.id  } })
+    navigation("/testDashboard", { state : { assessmentId , userId, test : test  } })
     
   }
   return (
