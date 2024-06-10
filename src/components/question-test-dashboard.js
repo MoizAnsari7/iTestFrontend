@@ -10,7 +10,7 @@ const TestWithQuestionListDashboard = ( ) => {
     const [ selectedTest , setSelectedTest ] = useState({})
     useEffect( ()=>{
       const { assessmentId , userId, test } = location.state;
-      console.log(location.state);
+      console.log(location.state,);
       setSelectedTest(test)
         axios.get('http://localhost:5000/v1/question/questionWithAnswer/'+ test.id).then(
         (response)=>{setQuestionList(response.data.data);
