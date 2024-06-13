@@ -18,6 +18,7 @@ import CreateAssessmentForm from "./components/assessment.component";
 import CreateQuestionForm from "./components/question.component";
 import TestWithQuestionListDashboard from "./components/question-test-dashboard";
 import OptionsComponent from "./components/options-component";
+import TestResult from "./screens/test-result-screen";
 // import addOptionForm from "./components/option.component";
 
 function App() {
@@ -34,7 +35,8 @@ function App() {
           <Route path="/addassessment" Component={ CreateAssessmentForm  } />
           <Route path="/assessmentlist" Component={ AssessmentList } />    
           <Route path="/testDashboard" Component={ TestWithQuestionListDashboard } />
-          <Route path="/addOption" Component={ OptionsComponent } />    
+          <Route path="/addOption" Component={ OptionsComponent } />
+          <Route path="/testResult" Component={ TestResult } />
         </Routes>
       </BrowserRouter>
     </>

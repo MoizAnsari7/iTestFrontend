@@ -10,14 +10,13 @@ const OptionsComponent = ()=>{
         explaination : "",
         solution : "",
         order : "",
-        isCorrect : false
+        isCorrect : false,
     })
 
     useEffect(()=>{
         const { question } = location.state;
         // const body = { ...formData, questionId : question.id }
         setSelectedQuestion(question)
-
     })
     const handleChange = (e)=>{
         console.log("e", e.target.value);
@@ -33,7 +32,9 @@ const OptionsComponent = ()=>{
         e.preventDefault()
         console.log("body", formData);
         const { question } = location.state;
-        const body = { ...formData, questionId : question.id }
+        const body = { ...formData, questionId : question.id,
+            //  testId : testId
+          }
         axios.post("http://localhost:5000/v1//option/save", body).then((response)=>{
             console.log("response", response.data);
         }).catch((e)=>{
