@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { useLocation, useNavigate } from "react-router";
 import "./question-details.component.css"
-const QuestionDetails = ({ question, index }) => {
+const QuestionDetails = ({ question, index, handleQuestionSelect }) => {
   const [showAnswer, setShowAnswer] = useState(false);
 const navigation = useNavigate()
   const handleShowAnswer = () => {
@@ -11,7 +11,8 @@ const navigation = useNavigate()
 
   const handleAddOption = ( question )=>{
     console.log("handleAddOption", question);
-    navigation("/addOption", { state : { question : question }})
+    // navigation("/addOption", { state : { question : question }})
+    handleQuestionSelect(question)
   }
   return (
     <div className="question-card">

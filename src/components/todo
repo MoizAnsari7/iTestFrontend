@@ -1,3 +1,30 @@
 answer add krne k form kisi question me
 question type [ coding , eassy, mcq (multiselect, single select option )]
 result calculation screen
+
+save user answer
+show result [ sectionwise, question with selected answer whether its right or not with all the option,  marks got, 
+marksheet generated, show test report percentag total section vise percentage passed failed,  ]
+
+send invitation to candidate
+
+
+flag management in live test
+
+scheduled test like live assessment
+
+test types
+mcq
+mcq with multiple selection checkbox
+typing test
+online video recording test
+online self video recording to test english speaking
+fill in the blanks with english paragraph
+add textbox functionality
+shre result as pdf report to another user
+create and maintain test library
+technical based test mcq, apptitude test, reaseoning test, english related test, coding test, video interview recording test, audio recorder test
+
+
+complete ui and functionality first
+start using redux tookit second

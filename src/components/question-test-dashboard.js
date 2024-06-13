@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios'
 import QuestionCard from "./Question-card";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import QuestionDetails from "./question-details.component";
 import "./question-details.component.css"
 const TestWithQuestionListDashboard = ( ) => {
@@ -19,6 +19,11 @@ const TestWithQuestionListDashboard = ( ) => {
 
     })
   },[])
+  const navigation = useNavigate()
+  const handleSelection = (question)=>{
+    console.log("handleQuestionSelect");
+    navigation("/addOption", { state : { question : question }})
+  }
 
     return (
       <div className="question-list">
@@ -26,7 +31,7 @@ const TestWithQuestionListDashboard = ( ) => {
         <h5>{ selectedTest.description }</h5>
         {( questionList && questionList.length > 0) && questionList.map((question, index) => (
         //   <QuestionCard key={question.id} question={question} />
-        <QuestionDetails key={question.id} question={question} index={index}/>
+        <QuestionDetails key={question.id} question={question} index={index} onClick={ handleSelection(question) }/>
         ))}
       </div>
     );

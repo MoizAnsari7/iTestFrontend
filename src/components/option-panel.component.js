@@ -9,7 +9,8 @@ const  OptionPanelComponent = ({ options })=>{
             "questionId": selectedOption?.questionId,
             "selectedOptionId":selectedOption?._id,
             "responseTime":100,
-            "correct" : selectedOption?.isCorrect
+            "correct" : selectedOption?.isCorrect,
+            // testId : question.testId
         }
         saveAnswerByUser( reqBody)
     }
@@ -17,6 +18,7 @@ const  OptionPanelComponent = ({ options })=>{
     async function saveAnswerByUser(answer)
     {
         try{
+            
             let answerResponse = await axios.post("http://localhost:5000/v1/answer/save", answer)
             alert("answer saved",answerResponse )
         }catch(e){
