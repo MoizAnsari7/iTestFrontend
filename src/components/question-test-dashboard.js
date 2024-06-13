@@ -21,8 +21,9 @@ const TestWithQuestionListDashboard = ( ) => {
   },[])
   const navigation = useNavigate()
   const handleSelection = (question)=>{
-    console.log("handleQuestionSelect");
-    navigation("/addOption", { state : { question : question }})
+    const { assessmentId , userId, test } = location.state;
+    console.log("handleQuestionSelect", question, test.id);
+    navigation("/addOption", { state : { question : question, testId : test.id }})
   }
 
     return (
@@ -31,7 +32,7 @@ const TestWithQuestionListDashboard = ( ) => {
         <h5>{ selectedTest.description }</h5>
         {( questionList && questionList.length > 0) && questionList.map((question, index) => (
         //   <QuestionCard key={question.id} question={question} />
-        <QuestionDetails key={question.id} question={question} index={index} onClick={ handleSelection(question) }/>
+        <QuestionDetails key={question.id} question={question} index={index} handleQuestionSelect={ (q)=>handleSelection(q) }/>
         ))}
       </div>
     );
